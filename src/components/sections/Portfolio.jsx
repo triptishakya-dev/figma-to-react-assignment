@@ -40,7 +40,7 @@ export default function Portfolio() {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain opacity-90 group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
 
