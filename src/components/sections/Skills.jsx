@@ -54,15 +54,15 @@ export default function SkillsSection() {
   }, []);
 
   return (
-    <div ref={sectionRef} className="bg-black py-20 px-4" name="skills">
+    <div ref={sectionRef} className="bg-white py-20 px-4" name="skills">
       <div className="container mx-auto">
         {/* Section Header */}
         <div className="mb-20">
-          <h2 className="text-white text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+          <h2 className="text-black text-5xl md:text-7xl font-bold mb-6 tracking-tight">
             Technical Skills
           </h2>
-          <div className="h-1 w-full bg-neutral-800 rounded-full overflow-hidden">
-             <div className={`h-full bg-white transition-all duration-1000 ease-out ${isVisible ? 'w-full' : 'w-0'}`}></div>
+          <div className="h-1 w-full bg-gray-200 rounded-full overflow-hidden">
+             <div className={`h-full bg-black transition-all duration-1000 ease-out ${isVisible ? 'w-full' : 'w-0'}`}></div>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export default function SkillsSection() {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <h3 className="text-2xl text-white font-bold mb-6 pb-2 border-b border-neutral-800 group-hover:border-white transition-colors duration-300">
+              <h3 className="text-2xl text-black font-bold mb-6 pb-2 border-b border-gray-200 group-hover:border-black transition-colors duration-300">
                 {category.title}
               </h3>
               
@@ -84,7 +84,7 @@ export default function SkillsSection() {
                 {category.skills.map((skill, skillIndex) => (
                   <span
                     key={skill}
-                    className="text-neutral-400 bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-300 cursor-default"
+                    className="text-gray-600 bg-gray-100 border border-gray-200 px-4 py-2 rounded-lg text-sm font-medium hover:bg-black hover:text-white hover:border-black transition-all duration-300 cursor-default"
                   >
                     {skill}
                   </span>
