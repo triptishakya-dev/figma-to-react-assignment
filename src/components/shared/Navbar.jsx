@@ -1,6 +1,8 @@
 "use client";
 import React, { useState } from "react";
 
+import { Code } from "lucide-react";
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -18,10 +20,13 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="flex items-center justify-between px-4 md:px-8 py-4 bg-black relative">
+    <nav className="flex items-center justify-between px-4 md:px-8 py-4 bg-gray-200 relative">
       <div className="flex items-center space-x-2">
         {/* Logo */}
-        <img src="/image/footer2.png" alt="not found" className="h-7" />
+        <div className="p-2 bg-black rounded-lg">
+          <Code className="h-6 w-6 text-white" />
+        </div>
+        <span className="text-xl font-bold tracking-tight">Tripti.dev</span>
       </div>
 
       {/* Desktop Navigation - Hidden on mobile and tablet */}
@@ -29,7 +34,7 @@ export default function Navbar() {
         <li>
           <a
             href="#home"
-            className="text-white hover:text-purple-300 transition"
+            className="text-black hover:text-purple-600 transition"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("home");
@@ -41,7 +46,7 @@ export default function Navbar() {
         <li>
           <a
             href="#portfolio"
-            className="text-white hover:text-purple-300 transition"
+            className="text-black hover:text-purple-600 transition"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("portfolio");
@@ -53,7 +58,7 @@ export default function Navbar() {
         <li>
           <a
             href="#skills"
-            className="text-white hover:text-purple-300 transition"
+            className="text-black hover:text-purple-600 transition"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("skills");
@@ -65,7 +70,7 @@ export default function Navbar() {
         <li>
           <a
             href="#about"
-            className="text-white hover:text-purple-300 transition"
+            className="text-black hover:text-purple-600 transition"
             onClick={(e) => {
               e.preventDefault();
               scrollToSection("aboutMe");
@@ -91,7 +96,7 @@ export default function Navbar() {
       {/* Mobile Menu Button - Visible on mobile and tablet */}
       <button
         onClick={toggleMenu}
-        className="lg:hidden text-white focus:outline-none"
+        className="lg:hidden text-black focus:outline-none"
         aria-label="Toggle menu"
       >
         <svg
@@ -120,12 +125,12 @@ export default function Navbar() {
 
       {/* Mobile Menu - Visible when toggled */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 w-full bg-black border-t border-gray-800 lg:hidden">
+        <div className="absolute top-full left-0 w-full bg-white border-t border-gray-200 lg:hidden shadow-lg">
           <ul className="flex flex-col py-4">
             <li>
               <a
                 href="#home"
-                className="block px-8 py-3 text-white hover:text-purple-300 hover:bg-gray-900 transition"
+                className="block px-8 py-3 text-black hover:text-purple-600 hover:bg-gray-50 transition"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("home");
@@ -138,7 +143,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#portfolio"
-                className="block px-8 py-3 text-white hover:text-purple-300 hover:bg-gray-900 transition"
+                className="block px-8 py-3 text-black hover:text-purple-600 hover:bg-gray-50 transition"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("portfolio");
@@ -151,7 +156,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#skills"
-                className="block px-8 py-3 text-white hover:text-purple-300 hover:bg-gray-900 transition"
+                className="block px-8 py-3 text-black hover:text-purple-600 hover:bg-gray-50 transition"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("skills");
@@ -164,7 +169,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#about"
-                className="block px-8 py-3 text-white hover:text-purple-300 hover:bg-gray-900 transition"
+                className="block px-8 py-3 text-black hover:text-purple-600 hover:bg-gray-50 transition"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection("aboutMe");
