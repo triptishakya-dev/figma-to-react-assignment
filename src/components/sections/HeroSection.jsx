@@ -27,7 +27,7 @@ export default function HeroSection() {
         {/* Left: Text Content */}
         <div className="w-full [@media(min-width:1024px)]:w-1/2 flex flex-col justify-center h-full">
           <h1 className="text-white text-6xl md:text-8xl font-extrabold leading-tight mb-4">
-            WEBSITE
+            FULL-STACK
             <br />
             DEVELOPER
           </h1>
