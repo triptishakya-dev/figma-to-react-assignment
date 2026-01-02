@@ -1,14 +1,37 @@
 "use client"
 import React, { useState, useEffect, useRef } from 'react';
-import { skills } from '@/constant';
+
+const skillCategories = [
+  {
+    title: "Web Technologies",
+    skills: ["HTML", "CSS", "JavaScript", "TypeScript"]
+  },
+  {
+    title: "Frontend Frameworks & Styling",
+    skills: ["React.js", "Next.js", "Tailwind CSS", "Shadcn", "Framer Motion"]
+  },
+  {
+    title: "Backend & APIs",
+    skills: ["Node.js", "Express.js", "REST APIs", "JWT Authentication", "BullMQ", "Clerk"]
+  },
+  {
+    title: "Databases",
+    skills: ["MongoDB", "PostgreSQL", "MySQL", "Prisma", "Redis", "Valkey", "Qdrant"]
+  },
+  {
+    title: "Cloud & DevOps",
+    skills: ["Docker", "AWS S3", "AWS ECR", "AWS ECS"]
+  },
+  {
+    title: "Tools",
+    skills: ["Git", "GitHub", "Vercel"]
+  }
+];
 
 export default function SkillsSection() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-
-
-  // Intersection Observer for animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -30,45 +53,45 @@ export default function SkillsSection() {
     };
   }, []);
 
-
-
   return (
-    <div ref={sectionRef} className=" bg-black py-16 px-4" name="skills">
-      <div className="container mx-auto w-full">
+    <div ref={sectionRef} className="bg-black py-20 px-4" name="skills">
+      <div className="container mx-auto">
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="text-white text-4xl md:text-6xl font-bold mb-4">
-            SKILLS
+        <div className="mb-20">
+          <h2 className="text-white text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+            Technical Skills
           </h2>
-          <p className="text-gray-400 text-lg mb-4">I have some skills</p>
-          <div className="w-24 h-1 bg-gradient-to-r from-pink-400 to-orange-400 mx-auto"></div>
+          <div className="h-1 w-full bg-neutral-800 rounded-full overflow-hidden">
+             <div className={`h-full bg-white transition-all duration-1000 ease-out ${isVisible ? 'w-full' : 'w-0'}`}></div>
+          </div>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {skills.map((skill, index) => {
-
-            return (
-              <div
-                key={skill.id}
-                className={`group bg-neutral-900 border border-neutral-800 rounded-xl p-6 hover:border-purple-500 transition-all duration-300 hover:-translate-y-2 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{
-                  transitionDelay: `${index * 100}ms`
-                }}
-              >
-                <div className="flex flex-col items-center text-center gap-4">
-                  <div className="p-3 bg-neutral-800 rounded-full group-hover:bg-neutral-700 transition-colors">
-                    <skill.icon className="w-8 h-8 text-orange-400" />
-                  </div>
-                  <h3 className="text-white text-lg font-bold">
-                    {skill.title}
-                  </h3>
-                </div>
+        {/* Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+          {skillCategories.map((category, index) => (
+            <div
+              key={category.title}
+              className={`group transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
+              <h3 className="text-2xl text-white font-bold mb-6 pb-2 border-b border-neutral-800 group-hover:border-white transition-colors duration-300">
+                {category.title}
+              </h3>
+              
+              <div className="flex flex-wrap gap-3">
+                {category.skills.map((skill, skillIndex) => (
+                  <span
+                    key={skill}
+                    className="text-neutral-400 bg-neutral-900 border border-neutral-800 px-4 py-2 rounded-lg text-sm font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-300 cursor-default"
+                  >
+                    {skill}
+                  </span>
+                ))}
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </div>
