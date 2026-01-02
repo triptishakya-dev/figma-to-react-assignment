@@ -15,14 +15,14 @@ export default function Portfolio() {
   };
 
   return (
-    <div className="bg-black py-8 md:py-16 px-4" name="portfolio">
+    <div className="bg-gray-100 py-8 md:py-16 px-4" name="portfolio">
       <div className="container mx-auto">
         {/* Portfolio Header - Enhanced responsive text sizes */}
         <div className="mb-8 md:mb-12">
-          <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4">
+          <h1 className="text-black text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 md:mb-4">
             PORTFOLIO
           </h1>
-          <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl">
+          <p className="text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl">
             Showcasing my latest work and projects
           </p>
         </div>
@@ -33,10 +33,10 @@ export default function Portfolio() {
             <div
               key={item.id}
               onClick={() => openModal(item)}
-              className="group flex flex-col bg-neutral-900 border border-gray-800 rounded-xl overflow-hidden hover:border-gray-600 transition-all duration-300 cursor-pointer"
+              className="group flex flex-col bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-xl hover:border-gray-300 transition-all duration-300 cursor-pointer shadow-sm"
             >
               {/* Image Section */}
-              <div className="relative w-full h-48 bg-gray-800 overflow-hidden">
+              <div className="relative w-full h-48 bg-gray-100 overflow-hidden">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -46,11 +46,11 @@ export default function Portfolio() {
 
               {/* Content Section */}
               <div className="p-5 flex flex-col flex-grow">
-                <h3 className="text-white text-xl font-bold mb-2 group-hover:text-gray-300 transition-colors">
+                <h3 className="text-black text-xl font-bold mb-2 group-hover:text-gray-700 transition-colors">
                   {item.title}
                 </h3>
                 
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2 flex-grow">
+                <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-grow">
                   {item.description}
                 </p>
                 
@@ -59,13 +59,13 @@ export default function Portfolio() {
                   {item.tags.slice(0, 4).map((tag, index) => (
                     <span
                       key={index}
-                      className="text-xs font-medium text-gray-300 bg-gray-800 px-2.5 py-1 rounded-md border border-gray-700"
+                      className="text-xs font-medium text-gray-700 bg-gray-100 px-2.5 py-1 rounded-md border border-gray-200"
                     >
                       {tag}
                     </span>
                   ))}
                   {item.tags.length > 4 && (
-                    <span className="text-xs font-medium text-gray-400 bg-gray-800/50 px-2 py-1 rounded-md">
+                    <span className="text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded-md">
                       +{item.tags.length - 4}
                     </span>
                   )}
@@ -77,12 +77,12 @@ export default function Portfolio() {
 
         {/* Modal - Enhanced responsive modal */}
         {selectedItem && (
-          <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center p-3 md:p-4 z-50">
-            <div className="bg-neutral-900 rounded-xl w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto">
+          <div className="fixed inset-0 bg-black/60 bg-opacity-80 flex items-center justify-center p-3 md:p-4 z-50 backdrop-blur-sm">
+            <div className="bg-white rounded-xl w-full max-w-xs sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto">
               <div className="relative">
                 <button
                   onClick={closeModal}
-                  className="absolute top-3 md:top-4 lg:top-6 right-3 md:right-4 lg:right-6 text-gray-400 hover:text-white z-10 p-1 rounded-full bg-black/20 backdrop-blur-sm touch-manipulation"
+                  className="absolute top-3 md:top-4 lg:top-6 right-3 md:right-4 lg:right-6 text-gray-500 hover:text-black z-10 p-1 rounded-full bg-white/80 backdrop-blur-sm touch-manipulation hover:bg-white"
                 >
                   <X className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 cursor-pointer" />
                 </button>
@@ -96,11 +96,11 @@ export default function Portfolio() {
                     />
                   </div>
                   
-                  <h2 className="text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
+                  <h2 className="text-black text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold mb-3 md:mb-4 lg:mb-6 leading-tight">
                     {selectedItem.title}
                   </h2>
                   
-                  <p className="text-gray-300 text-sm sm:text-base md:text-lg lg:text-xl mb-4 md:mb-6 lg:mb-8 leading-relaxed">
+                  <p className="text-gray-700 text-sm sm:text-base md:text-lg lg:text-xl mb-4 md:mb-6 lg:mb-8 leading-relaxed">
                     {selectedItem.description}
                   </p>
                   
@@ -130,7 +130,7 @@ export default function Portfolio() {
                       href={selectedItem.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2 lg:gap-3 bg-neutral-700 hover:bg-neutral-600 active:bg-neutral-500 text-white px-4 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3 lg:py-4 rounded-lg transition-colors text-sm sm:text-base md:text-lg lg:text-xl touch-manipulation"
+                      className="flex items-center justify-center gap-2 lg:gap-3 bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-700 text-white px-4 sm:px-5 md:px-6 lg:px-8 py-2 sm:py-2.5 md:py-3 lg:py-4 rounded-lg transition-colors text-sm sm:text-base md:text-lg lg:text-xl touch-manipulation"
                     >
                       <Github className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
                       Source Code
