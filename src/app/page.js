@@ -9,7 +9,7 @@ const page = () => {
   return (
     <div>
       <HeroSection/>
-      <PortfolioStats/>
+      {/* <PortfolioStats/> */}
       <Portfolio/>
       <SkillsSection/>
       <AboutMe/>
