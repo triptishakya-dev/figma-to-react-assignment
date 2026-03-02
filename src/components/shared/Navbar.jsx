@@ -26,7 +26,7 @@ export default function Navbar() {
         <div className="p-2 bg-black rounded-lg">
           <Code className="h-6 w-6 text-white" />
         </div>
-        <span className="text-xl font-bold tracking-tight">Tripti.dev</span>
+        <span className="text-xl font-bold tracking-tight text-black">Tripti.dev</span>
       </div>
 
       {/* Desktop Navigation - Hidden on mobile and tablet */}
